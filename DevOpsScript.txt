@@ -1,0 +1,28 @@
+#!/bin/bash
+#if echo "$string" | grep 'foo'; then
+#  echo "It's there!"
+#fi
+while read -r line
+do
+        num=`echo $line | grep -o '\<[0-9][0-9]*\>'`
+        echo $num
+        rem=$(( $num % 2 ))
+        emails=`grep -oe "[a-zA-Z0-9._]\+@[a-zA-Z]\+.[a-zA-Z]\+" DevOps | grep com`
+
+        if echo "$line" | grep 'com'
+        then
+                email=`echo $line |grep -oe "[a-zA-Z0-9._]\+@[a-zA-Z]\+.[a-zA-Z]\+"`
+                if [ $rem -eq 0 ]
+                then
+
+                        echo "the $num of $email is even number."
+                else
+                        echo "the $num of $email is odd number."
+                fi
+        fi
+done < DevOps
+
+
+-------------
+
+
