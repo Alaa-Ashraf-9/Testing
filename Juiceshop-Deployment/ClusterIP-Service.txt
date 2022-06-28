@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: juiceshop
+  namespace: ingress-nginx
+spec:
+  selector:
+    app: juiceshop
+  ports:
+    - name: juiceshop
+      protocol: TCP
+      port: 80
+      targetPort: 3000
